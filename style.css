@@ -1,0 +1,320 @@
+/* Estilos globales */
+/* Estilos globales */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    /* Usamos un gradiente lineal para el fondo */
+    background: linear-gradient(to bottom, #002b36, #155666, #4c7b89, #93a1a1, #eee8d5, #fdf6e3);
+    color: #2c3e50;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+/* Animación de carga épica */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(20, 20, 20, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.epic-loader {
+    text-align: center;
+}
+
+.spinner {
+    border: 16px solid #e0e0e0;
+    border-top: 16px solid #34495e;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: rgb(255, 162, 0);
+}
+
+/* Estilos para el interruptor de tema */
+.switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.slider {
+    width: 34px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 34px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.light-theme {
+    background: #fff;
+    color: #333;
+}
+
+/* Pantalla de inicio */
+.landing {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('futuristic-background.jpg') no-repeat center center/cover;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .landing {
+        background-size: contain; /* Permite que la imagen se ajuste mejor */
+    }
+}
+
+/* Estilo para el título con efecto de brillo */
+.intro h1 {
+    font-size: 4rem;
+    color: rgb(255, 255, 255);
+    animation: fadeIn 2s ease-out, glow 1.5s infinite alternate;
+}
+
+.intro p {
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    animation: fadeIn 3s ease-out, glow 1.5s infinite alternate;
+}
+
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #00eaff;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #ffffff;
+}
+
+/* Animación de fade-in */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Galería */
+.gallery {
+    padding: 50px 0;
+    background: #1b1b1b;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Estilos para los botones de "Me gusta" y "Compartir" */
+.image-actions {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-item:hover .image-actions {
+    opacity: 1;
+}
+
+.like-btn, .share-btn {
+    background: linear-gradient(to right, #fd0000, #fa6868, #e7bcbc);  /* Fondo de gradiente de rojo a gris */
+    color: white;  /* Color de texto blanco */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+}
+
+.like-btn:hover, .share-btn:hover {
+    background: linear-gradient(to to right, #e7bcbc,#fa6868, #fd0000);  /* Fondo de gradiente rojo claro a rosa claro */
+    color: white;  /* Cambia el color del texto a blanco */
+}
+
+/* Paginación */
+.pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.page-btn {
+    padding: 10px 20px;
+    background: #00eaff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.page-btn:hover {
+    background: #ffffff;
+}
+
+
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%; /* Ajusta el tamaño máximo de la imagen */
+    max-height: 90%; /* Asegura que la imagen no sea más grande que la ventana */
+    border: none; /* Elimina cualquier borde alrededor de la imagen */
+    box-shadow: none; /* Elimina el efecto de sombra */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.arrow-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prevArrow {
+    left: 10px;
+}
+
+#nextArrow {
+    right: 10px;
+}
+
+.icon {
+    fill: white;
+    width: 24px;
+    height: 24px;
+}
+
+
+.footer {
+    background: linear-gradient(45deg, #000000, #333333, #00eaff,  #a8f5f5);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 0.8rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00ff8c;
+}
