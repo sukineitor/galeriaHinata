@@ -10,6 +10,24 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
+header {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    padding: 1rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.logo {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.7));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
 
 /* Animación de carga épica */
 .loading-screen {
